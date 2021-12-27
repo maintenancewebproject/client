@@ -19,11 +19,25 @@ export class UserService {
     return this.httpClient.get<User[]>(this.apiServer + '/user/' + id);
   }
 
-  public addUser(user: User): Observable<User[]> {
+  public addUser(lastName : String , firstName : String, passWord : String, email : String, role : number): Observable<User[]> {
+   let user = {
+      lastName : lastName,
+      firstName : firstName,
+      passWord : passWord,
+      email : email,
+      role : role
+    }
     return this.httpClient.post<User[]>(this.apiServer + '/user/add', user);
   }
 
-  public updateUser(user: User): Observable<User[]> {
+  public updateUser(lastName : String , firstName : String, passWord : String, email : String, role : number): Observable<User[]> {
+    let user = {
+      lastName : lastName,
+      firstName : firstName,
+      passWord : passWord,
+      email : email,
+      role : role
+    }
     return this.httpClient.put<User[]>(this.apiServer + '/user/update', user);
   }
 

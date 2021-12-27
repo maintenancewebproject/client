@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private httpClient : HttpClient, private router : Router) { }
 
   login(user: any) {
-    return this.httpClient.post<any>(this.apiServer + '/user', user)
+    return this.httpClient.post<any>(this.apiServer + '/user/login', user)
   }
 
   logout() {
