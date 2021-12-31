@@ -7,6 +7,6 @@ export interface User {
     firstName: string;
     email: string;
     password: string;
-    role: Role;
+    role: number;
     resource: Resource[] | null;
 }

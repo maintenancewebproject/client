@@ -11,12 +11,12 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getUsers() : Observable<User[]> {
-    return this.httpClient.get<User[]>(this.apiServer + '/user/all');
+  public getUsers() : Observable<any[]> {
+    return this.httpClient.get<any[]>(this.apiServer + '/user/all');
   }
 
-  public getUserById(id: number): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.apiServer + '/user/' + id);
+  public getUserById(id: number): Observable<User> {
+    return this.httpClient.get<User>(this.apiServer + '/user/find/' + id);
   }
 
   public addUser(lastName : String , firstName : String, passWord : String, email : String, role : number): Observable<User[]> {
@@ -30,15 +30,15 @@ export class UserService {
     return this.httpClient.post<User[]>(this.apiServer + '/user/add', user);
   }
 
-  public updateUser(lastName : String , firstName : String, passWord : String, email : String, role : number): Observable<User[]> {
+  public updateUser(lastName : String , firstName : String, id: number, email : String, role : number): Observable<unknown> {
     let user = {
+      id : id,
       lastName : lastName,
       firstName : firstName,
-      passWord : passWord,
       email : email,
       role : role
     }
-    return this.httpClient.put<User[]>(this.apiServer + '/user/update', user);
+    return this.httpClient.put<unknown>(this.apiServer + '/user/update', user);
   }
 
   public deleteUser(id: number): Observable<unknown> {

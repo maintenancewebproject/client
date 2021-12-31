@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -7,11 +7,26 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private apiServer = 'http://localhost:8080';
+  private loggedIn : boolean = false;
+  private logInData; 
 
   constructor(private httpClient : HttpClient, private router : Router) { }
 
   login(user: any) {
-    return this.httpClient.post<any>(this.apiServer + '/user/login', user)
+    console.log(user);
+    const logInData = null; 
+    let params = new HttpParams().set('email', user.email).set('password', user.password);
+    this.httpClient.get<any>(this.apiServer + '/user/login', {params: params})
+    .subscribe(
+      (user) => {
+        console.log(user); 
+        if(user) {
+          //localStorage.setItem('token', user.token);
+          this.loggedIn = true;
+          this.logInData = user;
+        }
+        });
+
   }
 
   logout() {
@@ -19,7 +34,15 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  loggedIn() {
-      return !!localStorage.getItem('token');
+  isLoggedIn() {
+    return this.loggedIn;
+  }
+
+  getLogInData() {
+    return this.logInData;
+  }
+
+  getToken() {
+    return localStorage.getItem('token')
   }
 }

@@ -18,13 +18,10 @@ export class LogInComponent implements OnInit {
   }
 
   login () {
-    this.auth.login(this.loginUserData)
-    .subscribe(
-      res => {
-        this.router.navigate(['/admin-dashboard'])
-      },
-      err => console.log(err)
-    ) 
+   this.auth.login(this.loginUserData);
+   if(this.auth.getLogInData()){
+     this.router.navigate(['/admin-dashboard']);
+   }
   }
 
   // restorePassword () {
