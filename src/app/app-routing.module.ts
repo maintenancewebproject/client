@@ -5,6 +5,7 @@ import { AuthGuard } from './auth.guard';
 import { AddUserDialogComponent } from './dialogs/add-user-dialog/add-user-dialog.component';
 import { UpdateUserDialogComponent } from './dialogs/update-user-dialog/update-user-dialog.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.component';
 
 
 
@@ -38,6 +39,11 @@ const routes: Routes = [
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
     //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'usager-dashboard',
+    component: UsagerDashboardComponent
   }
 ];
 @NgModule({

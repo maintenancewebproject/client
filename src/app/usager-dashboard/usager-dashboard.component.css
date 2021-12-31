@@ -1,0 +1,32 @@
+input[type=text]{
+    width: 50%;
+    color : green;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#texte {
+    width: 50%;
+    color : red;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    height: 5cm;
+    box-sizing: border-box;
+
+}
+#mdp{
+    width: 50%;
+    background-color : green;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+
+}
