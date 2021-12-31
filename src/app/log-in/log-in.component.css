@@ -1,0 +1,23 @@
+
+input[type=email], input[type=password] {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button[type=button] {
+    width: 25%;
+    padding: 12px 20px;
+    background-color: green;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+
+}
+#img {
+    width: 30%;
+    height: 30%;
+}
