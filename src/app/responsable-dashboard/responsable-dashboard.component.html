@@ -1,0 +1,58 @@
+
+
+<button mat-raised-button color="primary" (click)="addResource()"> Ajouter une ressource </button>
+<div *ngIf="resources" class="mat-elevation-z8">
+  
+   <table mat-table [dataSource]="dataSource" class="table table-striped table-responsive-md btn-table" >
+ 
+     <!-- Id Column -->
+     <ng-container matColumnDef="id">
+       <th mat-header-cell *matHeaderCellDef> ide. </th>
+       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+     </ng-container>
+ 
+     <!-- localisation Column -->
+     <ng-container matColumnDef="localisation">
+       <th mat-header-cell *matHeaderCellDef> Localisation </th>
+       <td mat-cell *matCellDef="let element" (click)="openAnomaliesList(element.id)"> {{element.localisation}} </td>
+     </ng-container>
+
+     <!-- description Column -->
+     <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Discription </th>
+        <td mat-cell *matCellDef="let element" > {{element.description}} </td>
+      </ng-container>
+
+       <!-- delete Column -->
+     <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Supprimer </th>
+        <td mat-cell *matCellDef="let element" (click)="deleteResource(element)"> <mat-icon>delete</mat-icon> </td>
+      </ng-container>
+ 
+       <!-- update Column -->
+       <ng-container matColumnDef="update">
+          <th mat-header-cell *matHeaderCellDef> mettre à jour </th>
+          <td mat-cell *matCellDef="let element" (click)="updateResource(element)"> <mat-icon>update</mat-icon> </td>
+        </ng-container>
+
+        <!-- Access Column -->
+       <ng-container matColumnDef="access">
+        <th mat-header-cell *matHeaderCellDef> Lien d'accès </th>
+        <td mat-cell *matCellDef="let element" (click)="generateAccess(element)"> <mat-icon>picture_as_pdf</mat-icon> </td>
+      </ng-container>
+  
+ 
+     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+     <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+     <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Il n y a aucune ressource</td>
+    </tr>
+   </table>
+ 
+   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                  showFirstLastButtons 
+                  aria-label="">
+   </mat-paginator>
+ </div>
+
+ <div id="qr_code"></div>

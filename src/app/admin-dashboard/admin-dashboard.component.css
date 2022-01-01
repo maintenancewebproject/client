@@ -1,18 +1,35 @@
-#entrants {
-    width: 25%;
-    background-color: blue;
-    padding: 12px 20px;
-    margin: 5px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+table {
+    width: 100%;
+  }
+
+div {
+  margin :10%;
 }
-#traites {
-    width: 25%;
-    background-color:green;
-    padding: 12px 20px;
-    margin: 5px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+
+button {
+  margin-left: 10%;
+  background-color:rgb(255, 255, 255,0.8);
+  border-style:solid;
+  border-radius: 7px;
+  border-width: 0.25ex;
+
 }
+
+/* button {
+   
+  box-shadow: 0px 5px 5px rgb(117, 116, 117);
+  background-color:rgb(255, 255, 255,0.8);
+  border-style:solid;
+  border-radius: 7px;
+  border-width: 0.25ex;
+  text-align: center;
+  vertical-align: center;
+  font-size: 0.75em;
+  float: right !important;
+  right :0 !important;
+margin-right: 1%;
+  position: absolute;
+  z-index: 2;
+} */
+
+

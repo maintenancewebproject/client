@@ -1,3 +1,6 @@
+import { Role } from "./role";
+import { Resource } from "./resource";
+
 export interface User {
     id: number;
     lastName: string;
@@ -5,4 +8,5 @@ export interface User {
     email: string;
     password: string;
     role: number;
+    resource: Resource[];
 }

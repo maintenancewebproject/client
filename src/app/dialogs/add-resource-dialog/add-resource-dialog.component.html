@@ -1,0 +1,35 @@
+
+<div>
+    <h1> 
+  Ajouter une ressource
+    </h1>
+  </div>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field  appearance="fill">
+        <mat-label>Etage</mat-label>
+        <mat-select matInput [formControl]="etage">
+          <mat-option   value="Hedy Lamarr">Hedy Lamarr</mat-option>
+          <mat-option  value="Simone Veil">Simone Veil</mat-option>
+          <mat-option   value="Rosa Parks">Rosa Parks</mat-option>
+          <mat-option   value="Malala Yousafzai">Malala Yousafzai</mat-option>
+        </mat-select>
+    </mat-form-field>
+  <br>
+  <mat-form-field  appearance="fill">
+    <mat-label>Appartement</mat-label>
+    <input matInput [formControl]="appart"  placeholder="appart">
+  </mat-form-field>
+  <br>
+  <mat-form-field  appearance="fill">
+    <mat-label>Discription</mat-label>
+    <input matInput [formControl]="description"  placeholder="description">
+  </mat-form-field>
+     
+    <mat-error *ngIf="etage.invalid && appart.invalid && description.invalid"> Veuillez saisir au moins un champs</mat-error>
+    
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button mat-button type="submit">Ajouter</button> 
+    </mat-dialog-actions>
+  
+  </form> 

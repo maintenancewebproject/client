@@ -18,22 +18,22 @@ export class LogInComponent implements OnInit {
   }
 
   login () {
-    this.auth.login(this.loginUserData)
-    .subscribe(
-      res => {
-        this.router.navigate(['/admin-dashboard'])
-      },
-      err => console.log(err)
-    ) 
+   this.auth.login(this.loginUserData);
+   if(this.auth.getLogInData()){
+     if(this.auth.getLogInData().role == 1){
+        this.router.navigate(['/admin-dashboard']);
+     }else {
+       if(this.auth.getLogInData().role == 3){
+        this.router.navigate(['/usager-dashboard']);
+       }else{
+         if(this.auth.getLogInData().role == 2){
+        this.router.navigate(['/responsable-dashboard/' + this.auth.getLogInData().id]);
+         } 
+      }
+
+     }
+
+   }
   }
 
-  // restorePassword () {
-  //   this._auth.restorePassword(this.loginUserData).subscribe(
-  //     res => {
-  //       localStorage.setItem('token',res.token)
-  //       this._router.navigate(['/mailsent'])
-  //     },
-  //     err => console.error(err)
-  //   )
-  // }
 }

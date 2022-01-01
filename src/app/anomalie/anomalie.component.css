@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+  }
+
+div {
+  margin :10%;
+}
+
+tr:hover {
+  background: whitesmoke;
+}

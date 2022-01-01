@@ -1,0 +1,42 @@
+
+<div>
+  <h1> 
+Ajouter un utilisateur
+  </h1>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-form-field  appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input matInput [formControl]="firstname"  placeholder="Nom">
+  </mat-form-field>
+  <br>
+  <mat-form-field  appearance="fill">
+  <mat-label>Prénom</mat-label>
+  <input matInput [formControl]="lastname"  placeholder="Prénom">
+</mat-form-field>
+<br>
+<mat-form-field  appearance="fill">
+<mat-label>Email</mat-label>
+<input matInput [formControl]="userEmail"  placeholder="Email">
+</mat-form-field>
+<br>
+  <mat-form-field  appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select matInput [formControl]="userRole">
+      <mat-option   value="1">Administrateur</mat-option>
+      <mat-option  value="2">Responsable formation</mat-option>
+      <mat-option   value="3">Usager</mat-option>
+    </mat-select>
+  </mat-form-field>
+   
+  <mat-error *ngIf="firstname.invalid"> Veuillez saisir le nom</mat-error>
+  <mat-error *ngIf="lastname.invalid"> Veuillez saisir le prénom</mat-error>
+  <mat-error *ngIf="userEmail.invalid"> email inavlide</mat-error>
+  <mat-error *ngIf="userRole.invalid"> Veuillez choisir un role</mat-error>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Annuler</button>
+    <button mat-button type="submit">Ajouter</button> 
+  </mat-dialog-actions>
+
+</form> 
