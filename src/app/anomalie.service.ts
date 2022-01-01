@@ -20,7 +20,13 @@ export class AnomalieService {
     return this.httpClient.get<Anomalie>(this.apiServer + '/find/' + id);
   }
 
-  createAnomalie(anomalie: Anomalie) {
+  addAnomalie(description : string, resourceId : number, isTreated : boolean = false, userId : number = 0) {
+    let anomalie = {
+      description : description,
+      resourceId : resourceId,
+      isTreated : isTreated,
+      user : userId,
+    }
     return this.httpClient.post<Anomalie>(this.apiServer + '/add', anomalie);
   }
   

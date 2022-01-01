@@ -16,7 +16,7 @@ export class UserService {
   }
 
   public getUserById(id: number): Observable<User> {
-    return this.httpClient.get<User>(this.apiServer + '/user/find/' + id);
+    return this.httpClient.get<any>(this.apiServer + '/user/find/' + id);
   }
 
   public addUser(lastName : String , firstName : String, passWord : String, email : String, role : number): Observable<User[]> {

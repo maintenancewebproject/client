@@ -11,19 +11,28 @@ export class ResourceService {
   private apiServer = 'http://localhost:8080/resource';
   constructor(private httpClient : HttpClient, private router : Router) { }
 
-  getAllResourcesByUser(user: any) {
-    return this.httpClient.get<Resource[]>(this.apiServer + '/all' ,user);
+  getAllResourcesByUser(userId:number) {
+    return this.httpClient.get<any[]>(this.apiServer + '/all/' + userId);
   }
 
   getResourceById(id: number) {
-    return this.httpClient.get<Resource>(this.apiServer + '/find/' + id);
+    return this.httpClient.get<any>(this.apiServer + '/find/' + id);
   }
 
-  createResource(resource: Resource) {
-    return this.httpClient.post<Resource>(this.apiServer + '/add', resource);
+  addResource(localisation : string, description : string, id : number) {
+    let resource = {
+      localisation : localisation,
+      description : description,
+    }
+    return this.httpClient.post<Resource>(this.apiServer + '/add/' + id, resource);
   }
 
-  updateResource(resource: Resource) {
+  updateResource(localisation : string, description : string, id : number) {
+    let resource = {
+      id : id,
+      localisation : localisation,
+      description : description
+    }
     return this.httpClient.put<Resource>(this.apiServer + '/update', resource);
   }
 

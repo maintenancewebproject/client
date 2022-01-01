@@ -17,7 +17,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'delete', 'update'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName','role', 'delete', 'update'];
+  roles : string[] = ['Administrateur', 'Résponsable', 'Usager'];
   
 
   @ViewChild(MatPaginator)
@@ -29,12 +30,6 @@ export class AdminDashboardComponent implements AfterViewInit {
   public users: User[] = [];
   public dataSource!: MatTableDataSource<any>; 
   
-  public roles : Role[] = [
-    {id : 1, description : 'Administrateur'},
-    {id : 2, description : 'Responsable de maintenance'},
-    {id : 3, description : 'Usager'},
-  ];
-
   public roleSelector : FormControl = new FormControl(new Number()); 
   
 
@@ -47,7 +42,7 @@ export class AdminDashboardComponent implements AfterViewInit {
         this.users.forEach((user) => {
           console.log(user)
           let elem : Element = {
-            id: user.id, firstName :user.firstName,lastName :user.lastName , delete:'', update:''};
+            id: user.id, firstName :user.firstName,lastName :user.lastName ,role : this.roles[user.role -1], delete:'', update:''};
             ELEMENT_DATA.push(elem);
             console.log(ELEMENT_DATA);
           });
@@ -77,7 +72,7 @@ export class AdminDashboardComponent implements AfterViewInit {
         this.users.forEach((user) => {
           console.log(user)
           let elem : Element = {
-            id: user.id, firstName :user.firstName,lastName :user.lastName , delete:'', update:''};
+            id: user.id, firstName :user.firstName,lastName :user.lastName ,role : this.roles[user.role -1], delete:'', update:''};
             ELEMENT_DATA.push(elem);
             console.log(ELEMENT_DATA);
         });
@@ -93,7 +88,7 @@ export class AdminDashboardComponent implements AfterViewInit {
         this.getUsers();
       },
       (error) => {
-        alert(error.message);
+        alert("L'utilisateur n'a pas pu être supprimé");
       }
     );
   }
@@ -103,9 +98,9 @@ export class AdminDashboardComponent implements AfterViewInit {
       data: {
         userId: e.id}});
       dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      this.getUsers();
-    });
+        console.log(`Dialog result: ${result}`);
+        this.getUsers();
+      });
   }
 
   public addUser(): void {
@@ -123,6 +118,7 @@ export interface Element {
   id: number;
   firstName :string;
   lastName : string;
+  role : string;
   delete:string;
   update:  string;
 }

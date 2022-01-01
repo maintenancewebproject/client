@@ -25,8 +25,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.component';
-import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
-import { QrCodeComponent } from './qr-code/qr-code.component'
+import { ResponsableDashboardComponent } from './responsable-dashboard/responsable-dashboard.component';
+import { AnomalieComponent } from './anomalie/anomalie.component';
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 
 @NgModule({
@@ -38,9 +39,11 @@ import { QrCodeComponent } from './qr-code/qr-code.component'
     UpdateUserDialogComponent,
     UpdateResourceDialogComponent,
     AddResourceDialogComponent,
-    AddAnomalieDialogComponent
+    AddAnomalieDialogComponent,
     UsagerDashboardComponent,
-    QrCodeComponent
+    ResponsableDashboardComponent,
+    AnomalieComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +62,7 @@ import { QrCodeComponent } from './qr-code/qr-code.component'
     MatButtonModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule,
-    NgxQRCodeModule
-    
+    MatInputModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

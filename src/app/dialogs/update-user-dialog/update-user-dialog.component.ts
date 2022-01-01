@@ -52,7 +52,7 @@ export class UpdateUserDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.updateUser(this.lastName, this.firstName, this.userId, this.email, Number(this.role)).subscribe(
+    this.userService.updateUser(this.lastName, this.firstName, this.data.userId, this.email, Number(this.role)).subscribe(
       (response) => {
         console.log(response);
       },

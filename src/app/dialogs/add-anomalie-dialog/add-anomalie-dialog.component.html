@@ -1,1 +1,16 @@
-<p>add-anomalie-dialog works!</p>
+<div class="card-header">
+    <h1 class="sign" align="center">Résidance Gisèle Halimi</h1>
+  </div>
+<div>
+<form [formGroup]="anomalieForm" (ngSubmit)="onSubmit()">
+<mat-form-field  appearance="fill">
+  <mat-label>Discription</mat-label>
+  <textarea matInput [formControl]="description"  placeholder="Décrivez votre problème"> </textarea>
+</mat-form-field>
+  
+  <mat-dialog-actions align="end">
+    <button mat-button type="submit">Ajouter</button> 
+  </mat-dialog-actions>
+
+</form> 
+</div>

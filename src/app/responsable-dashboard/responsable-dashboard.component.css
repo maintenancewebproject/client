@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+
+div {
+  margin :10%;
+}
+
+button {
+  margin-left: 10%;
+  background-color:rgb(255, 255, 255,0.8);
+  border-style:solid;
+  border-radius: 7px;
+  border-width: 0.25ex;
+
+}
+
+tr:hover {
+  background: whitesmoke;
+}

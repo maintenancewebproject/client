@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import jsPDF from 'jspdf';
-import PdfMake from 'pdfmake/build/pdfmake';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -12,9 +11,9 @@ import { UserService } from 'src/app/user.service';
 export class AddUserDialogComponent implements OnInit {
   public userForm: FormGroup;
   public password : string = "";
+  public download : boolean = false;
 
-  @ViewChild('pdfTable')
-  pdfTable!: ElementRef;
+  @ViewChild('pdfTable') pdfTable!: ElementRef;
 
 
   firstname = new FormControl('', [Validators.required]);
@@ -46,7 +45,8 @@ export class AddUserDialogComponent implements OnInit {
     .subscribe(
       (response) => {
         console.log(response);
-        this.downloadUserInfoAsPDF();
+        this.download = true;
+        this.downloadPDF(this.firstName, this.lastName);
         alert("L'utilisateur a été ajouté avec succès");
         this.userForm.reset();
       },
@@ -57,16 +57,13 @@ export class AddUserDialogComponent implements OnInit {
     );
   }
 
-  public downloadUserInfoAsPDF() {
-    const doc = new jsPDF();
-    const pdfTable = this.pdfTable.nativeElement;
-    var html = htmlToPdfmake(pdfTable.innerHTML);
-    const documentDefinition = { content: html };
-    PdfMake.createPdf(documentDefinition).download('userInfo.pdf');
+  public downloadPDF(firstName: string, lastName: string):void {
+    var doc = new jsPDF();          
+    doc.setFontSize(22)
+    doc.text( 'Information de connexion :' ,20, 20);
+    doc.setFontSize(16)
+    doc.text('Nom: ' + firstName + ' \n Prénom: ' + lastName + ' \n Email: ' + this.email + ' \n Mot de passe: ' + this.password,20, 30);
+    doc.save( firstName + "_" + lastName + ".pdf");
   }
-
-}
-function htmlToPdfmake(innerHTML: any) {
-  throw new Error('Function not implemented.');
 }
 
