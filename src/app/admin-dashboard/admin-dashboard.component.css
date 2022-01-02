@@ -12,6 +12,8 @@ button {
   border-style:solid;
   border-radius: 7px;
   border-width: 0.25ex;
+  float: left !important;
+  left :0 !important;
 
 }
 

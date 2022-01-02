@@ -1,3 +1,4 @@
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -6,6 +7,7 @@ import { AuthService } from '../auth.service';
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.css']
+   
 })
 export class LogInComponent implements OnInit {
 
@@ -35,5 +37,9 @@ export class LogInComponent implements OnInit {
 
    }
   }
+  getUrl()
+{
+  return "url('assets/img/123.png')";
+}
 
 }

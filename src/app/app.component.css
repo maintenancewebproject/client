@@ -10,7 +10,7 @@ button {
     font-size: 0.75em;
     float: right !important;
     right :0 !important;
-  margin-right: 1%;
+    margin-right: 1%;
     position: absolute;
     z-index: 2;
 }
@@ -19,5 +19,36 @@ button {
     border-color:rgb(18, 75, 235);
     color: rgb(18, 75, 235);
     text-align: center;
+
+}
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 5%;
+  left: 30%;
+  font-size: 350%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: chartreuse;
+  
+}
+h2{
+  text-align: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 13%;
+  left: 36%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 300%;
+  color: blue;
+
+}
+#img{
+  float: left !important;
+  left :0 !important;
+  margin-left: 1%;
+  width: 15%;
+  height: 10%;
+  
 
 }
