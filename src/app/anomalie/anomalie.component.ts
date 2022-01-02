@@ -4,14 +4,14 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import jsPDF from 'jspdf';
-import { AnomalieService } from '../anomalie.service';
 import { AddResourceDialogComponent } from '../dialogs/add-resource-dialog/add-resource-dialog.component';
 import { UpdateResourceDialogComponent } from '../dialogs/update-resource-dialog/update-resource-dialog.component';
 import { Anomalie } from '../models/anomalie';
 import { Resource } from '../models/resource';
 import { User } from '../models/user';
-import { ResourceService } from '../resource.service';
-import { UserService } from '../user.service';
+import { AnomalieService } from '../services/anomalie.service';
+import { ResourceService } from '../services/resource.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-anomalie',

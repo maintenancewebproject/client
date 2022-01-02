@@ -5,17 +5,17 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import jsPDF from 'jspdf';
-import { AddResourceDialogComponent } from '../dialogs/add-resource-dialog/add-resource-dialog.component';
-import { AddUserDialogComponent } from '../dialogs/add-user-dialog/add-user-dialog.component';
-import { UpdateResourceDialogComponent } from '../dialogs/update-resource-dialog/update-resource-dialog.component';
-import { UpdateUserDialogComponent } from '../dialogs/update-user-dialog/update-user-dialog.component';
-import { Resource } from '../models/resource';
-import { User } from '../models/user';
-import { ResourceService } from '../resource.service';
-import { UserService } from '../user.service';
+import { AddResourceDialogComponent } from '../../dialogs/add-resource-dialog/add-resource-dialog.component';
+import { AddUserDialogComponent } from '../../dialogs/add-user-dialog/add-user-dialog.component';
+import { UpdateResourceDialogComponent } from '../../dialogs/update-resource-dialog/update-resource-dialog.component';
+import { UpdateUserDialogComponent } from '../../dialogs/update-user-dialog/update-user-dialog.component';
+import { Resource } from '../../models/resource';
+import { User } from '../../models/user';
 import html2canvas from 'html2canvas';
 import { QRCode } from  'qrcode';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { ResourceService } from 'src/app/services/resource.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-responsable-dashboard',

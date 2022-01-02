@@ -5,11 +5,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { AddUserDialogComponent } from '../dialogs/add-user-dialog/add-user-dialog.component';
-import { UpdateUserDialogComponent } from '../dialogs/update-user-dialog/update-user-dialog.component';
-import { Role } from '../models/role';
-import { User } from '../models/user';
-import { UserService } from '../user.service';
+import { UserService } from 'src/app/services/user.service';
+import { AddUserDialogComponent } from '../../dialogs/add-user-dialog/add-user-dialog.component';
+import { UpdateUserDialogComponent } from '../../dialogs/update-user-dialog/update-user-dialog.component';
+import { Role } from '../../models/role';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-admin-dashboard',

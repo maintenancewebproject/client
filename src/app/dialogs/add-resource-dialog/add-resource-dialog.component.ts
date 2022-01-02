@@ -2,8 +2,8 @@ import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import jsPDF from 'jspdf';
-import { ResourceService } from 'src/app/resource.service';
-import { UserService } from 'src/app/user.service';
+import { ResourceService } from 'src/app/services/resource.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-resource-dialog',
