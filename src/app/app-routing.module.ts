@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AdminGuard } from './admin.guard';
+import { AdminDashboardComponent } from './dashboards/admin-dashboard/admin-dashboard.component';
 import { AnomalieComponent } from './anomalie/anomalie.component';
-import { AuthGuard } from './auth.guard';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboards/dashboard/dashboard.component';
 import { AddAnomalieDialogComponent } from './dialogs/add-anomalie-dialog/add-anomalie-dialog.component';
 import { AddUserDialogComponent } from './dialogs/add-user-dialog/add-user-dialog.component';
 import { UpdateUserDialogComponent } from './dialogs/update-user-dialog/update-user-dialog.component';
 import { LogInComponent } from './log-in/log-in.component';
-import { ResponsableDashboardComponent } from './responsable-dashboard/responsable-dashboard.component';
-import { ResponsableGuard } from './responsable.guard';
-import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.component';
-import { UsagerGuard } from './usager.guard';
+import { ResponsableDashboardComponent } from './dashboards/responsable-dashboard/responsable-dashboard.component';
+import { UsagerDashboardComponent } from './dashboards/usager-dashboard/usager-dashboard.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ResponsableGuard } from './guards/responsable.guard';
+import { UsagerGuard } from './guards/usager.guard';
 
 
 

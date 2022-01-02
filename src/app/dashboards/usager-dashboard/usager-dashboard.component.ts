@@ -2,9 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { AnomalieService } from '../anomalie.service';
-import { ResourceService } from '../resource.service';
-import { UserService } from '../user.service';
+import { AnomalieService } from 'src/app/services/anomalie.service';
+import { ResourceService } from 'src/app/services/resource.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-usager-dashboard',

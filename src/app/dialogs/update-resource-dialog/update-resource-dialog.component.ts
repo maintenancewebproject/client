@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ResourceService } from 'src/app/resource.service';
-import { UserService } from 'src/app/user.service';
+import { ResourceService } from 'src/app/services/resource.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-update-resource-dialog',

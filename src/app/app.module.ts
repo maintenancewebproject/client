@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminDashboardComponent } from './dashboards/admin-dashboard/admin-dashboard.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,10 +24,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.component';
-import { ResponsableDashboardComponent } from './responsable-dashboard/responsable-dashboard.component';
+import { UsagerDashboardComponent } from './dashboards/usager-dashboard/usager-dashboard.component';
+import { ResponsableDashboardComponent } from './dashboards/responsable-dashboard/responsable-dashboard.component';
 import { AnomalieComponent } from './anomalie/anomalie.component';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboards/dashboard/dashboard.component'
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { QRCodeModule } from 'angularx-qrcode';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
