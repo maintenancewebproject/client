@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class LogInComponent implements OnInit {
   loginUserData = {email:"", password:""}
 
   constructor(private auth: AuthService,
-              private router: Router) { }
+              private router: Router, private route : ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -24,7 +24,7 @@ export class LogInComponent implements OnInit {
         this.router.navigate(['/admin-dashboard']);
      }else {
        if(this.auth.getLogInData().role == 3){
-        this.router.navigate(['/usager-dashboard']);
+        this.router.navigate(['/usager-dashboard/' + this.route.snapshot.queryParams['id']]);
        }else{
          if(this.auth.getLogInData().role == 2){
         this.router.navigate(['/responsable-dashboard/' + this.auth.getLogInData().id]);

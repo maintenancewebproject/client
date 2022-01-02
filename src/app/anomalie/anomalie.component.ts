@@ -19,28 +19,24 @@ import { UserService } from '../user.service';
   styleUrls: ['./anomalie.component.css']
 })
 export class AnomalieComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id','localisation', 'description', 'delete', 'treated', 'ticket'];
+  displayedColumns: string[] = ['id','localisation', 'description', 'delete','ticket'];
 
   public anomalies: Anomalie[] = [];
   public dataSource!: MatTableDataSource<any>; 
-  public user!: User; 
   private resourceId! : number;
   
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
   constructor(private userService : UserService , private anomalieService: AnomalieService, private resourceService : ResourceService, private router: Router, public dialog : MatDialog, private route: ActivatedRoute) {
-   this.resourceId =  this.route.snapshot.paramMap.get('id') ? Number(this.route.snapshot.paramMap.get('id')) : 0;
+    this.resourceId =  this.route.snapshot.paramMap.get('id') ? Number(this.route.snapshot.paramMap.get('id')) : 0;
    this.resourceService.getResourceById(this.resourceId).subscribe( (resource) => {
-      this.user = resource.user;
-     this.anomalies = resource.anomalie;
+     this.anomalies = resource.anomalies;
       const ELEMENT_DATA: Element[] = [];
       this.anomalies.forEach((anomalie) => {
-        console.log(anomalie)
         let elem : Element = {
-          id: anomalie.id,localisation : resource.localisation, description:anomalie.description, delete:'', treated: anomalie.isTreated? 'Oui' : 'Non', ticket: ''};
+          id: anomalie.id,localisation : resource.localisation, description:anomalie.description, delete:'', ticket: ''};
           ELEMENT_DATA.push(elem);
-          console.log(ELEMENT_DATA);
       });
       this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
         this.dataSource.paginator = this.paginator; 
@@ -53,24 +49,20 @@ export class AnomalieComponent implements AfterViewInit {
 
   public getAnomalies(): void {
     this.resourceService.getResourceById(this.resourceId).subscribe( (resource) => {
-      this.user = resource.user;
-     this.anomalies = resource.anomalie;
+     this.anomalies = resource.anomalies;
       const ELEMENT_DATA: Element[] = [];
       this.anomalies.forEach((anomalie) => {
-        console.log(anomalie)
         let elem : Element = {
-          id: anomalie.id,localisation : resource.localisation, description:anomalie.description, delete:'', treated: anomalie.isTreated? 'Oui' : 'Non', ticket: ''};
+          id: anomalie.id,localisation : resource.localisation, description:anomalie.description, delete:'', ticket: ''};
           ELEMENT_DATA.push(elem);
-          console.log(ELEMENT_DATA);
       });
       this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
     });
    }
-  
+
   public deleteAnomalie(e: Element): void {
     this.anomalieService.deleteAnomalieById(e.id).subscribe(
       (response) => {
-        console.log(response);
         alert("L'anomalie a été supprimé");
         this.getAnomalies();
       },
@@ -83,14 +75,20 @@ export class AnomalieComponent implements AfterViewInit {
   generateTicket(element : Element) {
     var doc = new jsPDF();          
     doc.setFontSize(22)
-    doc.text( 'Ticket de maintenance  :' + element.id ,20, 20);
+    doc.text( 'Ticket de maintenance : ' + element.id ,20, 20);
     doc.setFontSize(16)
-    doc.text('Nom de l\'agent de maintenance :' + this.user.firstName + this.user.lastName +
-      ' \n Email de l\'agent de maintenance : ' + this.user.email + 
-       ' \n Localisation :' + element.localisation + 
-       '\n Discription ' + element.description +
-       '\n Traitée : ' + element.treated + 
-       'Date et heure :' +  Date.now(),20, 30);
+    var today = new Date();
+    today.toLocaleDateString('fr-FR');
+today.toLocaleTimeString('fr-FR');
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+
+    doc.text(  
+       ' \n Localisation : ' + element.localisation + 
+       '\n Discription : ' + element.description + 
+       ' \n Date :' + today,20, 30);
     doc.save( "ticket_" + element.id + " _ " + element.localisation + ".pdf");
   }
 }
@@ -100,6 +98,5 @@ export interface Element {
   description: string;
   localisation: string;
   delete:string;
-  treated:  string;
   ticket: string;
 }

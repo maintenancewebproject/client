@@ -23,11 +23,9 @@ export class AnomalieService {
   addAnomalie(description : string, resourceId : number, isTreated : boolean = false, userId : number = 0) {
     let anomalie = {
       description : description,
-      resourceId : resourceId,
       isTreated : isTreated,
-      user : userId,
     }
-    return this.httpClient.post<Anomalie>(this.apiServer + '/add', anomalie);
+    return this.httpClient.post<Anomalie>(this.apiServer + '/add/' + resourceId + '/' + userId, anomalie);
   }
   
   deleteAnomalieById(id: number) {
@@ -36,5 +34,9 @@ export class AnomalieService {
 
   deleteAnomalieByResource(resource: any) {
     return this.httpClient.delete<unknown>(this.apiServer + '/delete/', resource);
+  }
+
+  updateAnomalie(id : number, treated : boolean) {
+    return this.httpClient.put<Anomalie>(this.apiServer + '/update/' + id + '/' + treated, null);
   }
 }

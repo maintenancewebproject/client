@@ -13,13 +13,11 @@ export class AuthService {
   constructor(private httpClient : HttpClient, private router : Router) { }
 
   login(user: any) {
-    console.log(user);
     const logInData = null; 
     let params = new HttpParams().set('email', user.email).set('password', user.password);
     this.httpClient.get<any>(this.apiServer + '/user/login', {params: params})
     .subscribe(
       (user) => {
-        console.log(user); 
         if(user) {
           //localStorage.setItem('token', user.token);
           this.loggedIn = true;

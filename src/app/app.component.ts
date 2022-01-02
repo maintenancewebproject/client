@@ -16,7 +16,6 @@ export class AppComponent {
       if(users.length == 0) {
          userService.addUser('maintenance', 'admin','administrateur','admin@gmail.com',1).subscribe(
             (response) => {
-              console.log('user created');
             }
           );
       }

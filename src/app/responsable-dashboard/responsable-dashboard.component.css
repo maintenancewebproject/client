@@ -18,3 +18,7 @@ button {
 tr:hover {
   background: whitesmoke;
 }
+
+div#qr_code {
+  margin: 0 auto;
+}

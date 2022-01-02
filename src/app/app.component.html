@@ -1,7 +1,6 @@
 
 <div>
     <mat-toolbar-row>
-      <button mat-raised-button class="login-button" *ngIf="!authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Se connecter</button>
       <button mat-raised-button style="cursor:pointer" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Déconnexion</button> 
     </mat-toolbar-row>  
   </div>   

@@ -29,11 +29,6 @@ Mettre à jour un utilisateur
     </mat-select>
   </mat-form-field>
    
-  <mat-error *ngIf="firstname.invalid"> Veuillez saisir le nom</mat-error>
-  <mat-error *ngIf="lastname.invalid"> Veuillez saisir le prénom</mat-error>
-  <mat-error *ngIf="userEmail.invalid"> email inavlide</mat-error>
-  <mat-error *ngIf="userRole.invalid"> Veuillez choisir un role</mat-error>
-
   <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Annuler</button>
     <button mat-button type="submit">Ajouter</button> 

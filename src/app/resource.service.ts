@@ -37,7 +37,7 @@ export class ResourceService {
   }
 
   deleteResource(id: number) {
-    return this.httpClient.delete<Resource>(this.apiServer + '/delete/' + id);
+    return this.httpClient.delete<unknown>(this.apiServer + '/delete/' + id);
   }
 }
 

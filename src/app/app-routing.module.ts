@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminGuard } from './admin.guard';
 import { AnomalieComponent } from './anomalie/anomalie.component';
 import { AuthGuard } from './auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -9,11 +10,14 @@ import { AddUserDialogComponent } from './dialogs/add-user-dialog/add-user-dialo
 import { UpdateUserDialogComponent } from './dialogs/update-user-dialog/update-user-dialog.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { ResponsableDashboardComponent } from './responsable-dashboard/responsable-dashboard.component';
+import { ResponsableGuard } from './responsable.guard';
 import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.component';
+import { UsagerGuard } from './usager.guard';
 
 
 
 const routes: Routes = [
+  
   
   {
     path: '',
@@ -25,36 +29,38 @@ const routes: Routes = [
     component: LogInComponent
   },
   {
+    path: 'login/:id',
+    component: LogInComponent
+  },
+  {
     path: 'add-user-dialog',
     component: AddUserDialogComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AdminGuard]
   },
   {
     path: 'update-user-dialog',
     component: UpdateUserDialogComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AdminGuard]
   },
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AdminGuard]
   },
   {
     path: 'responsable-dashboard/:id',
     component: ResponsableDashboardComponent,
-    //canActivate: [AuthGuard]
-   // canActivate: [AuthGuard]
+      canActivate: [ResponsableGuard]
   },
   {
     path: 'anomalie/:id',
     component: AnomalieComponent,
-    canActivate: [AuthGuard]
-   // canActivate: [AuthGuard]
+    canActivate: [ResponsableGuard]
   },
   {
     path: 'usager-dashboard/:id',
     component: UsagerDashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [UsagerGuard]
   },
   {
     path: 'dashboard/:id',

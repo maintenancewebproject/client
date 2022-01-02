@@ -44,7 +44,6 @@ export class AddUserDialogComponent implements OnInit {
     this.userService.addUser(this.lastName, this.firstName, this.password,this.email, Number(this.role) )
     .subscribe(
       (response) => {
-        console.log(response);
         this.download = true;
         this.downloadPDF(this.firstName, this.lastName);
         alert("L'utilisateur a été ajouté avec succès");
@@ -60,7 +59,7 @@ export class AddUserDialogComponent implements OnInit {
   public downloadPDF(firstName: string, lastName: string):void {
     var doc = new jsPDF();          
     doc.setFontSize(22)
-    doc.text( 'Information de connexion :' ,20, 20);
+    doc.text( 'Informations de connexion :' ,20, 20);
     doc.setFontSize(16)
     doc.text('Nom: ' + firstName + ' \n Prénom: ' + lastName + ' \n Email: ' + this.email + ' \n Mot de passe: ' + this.password,20, 30);
     doc.save( firstName + "_" + lastName + ".pdf");

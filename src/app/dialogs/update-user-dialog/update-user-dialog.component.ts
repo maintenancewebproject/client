@@ -30,10 +30,8 @@ export class UpdateUserDialogComponent implements OnInit {
 
 
   constructor(private userService: UserService, @Inject(MAT_DIALOG_DATA) public data : Item) {
-    console.log(this.data.userId);
     this.userService.getUserById(this.data.userId).subscribe(
       (user) => {
-        console.log(user);
         this.firstname.setValue(user.firstName);
         this.lastname.setValue(user.lastName);
         this.userEmail.setValue(user.email);
@@ -54,7 +52,6 @@ export class UpdateUserDialogComponent implements OnInit {
   onSubmit() {
     this.userService.updateUser(this.lastName, this.firstName, this.data.userId, this.email, Number(this.role)).subscribe(
       (response) => {
-        console.log(response);
       },
       (error) => {
         alert(error.message);
