@@ -45,7 +45,6 @@ export class UpdateResourceDialogComponent implements OnInit {
     this.resourceService.updateResource(this.Etage + ' - ' + this.Appart, this.Description, this.data.resourceId)
     .subscribe(
       (response) => {
-        console.log(response);
         alert("La ressource a été ajouté avec succès");
         this.resourceForm.reset();
       },

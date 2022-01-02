@@ -19,5 +19,8 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/add-anomalie-dialog' , this.resourceId]);
   }
 
+  openLogin() {
+    this.router.navigate(['login/' + this.resourceId])
+  }
 }
 

@@ -55,4 +55,10 @@
    </mat-paginator>
  </div>
 
- <div id="qr_code"></div>
+ <div *ngIf="qrdata != '' " id="qr_code">
+   <h1> Fiche de signalement d'anomalies </h1>
+     <p> Veuillez suivre le lien suivant pour signaler un problème au : {{localisation}} </p>
+     <p>{{qrdata}}</p>
+     <p>Ou scannez le QRcode suivant : </p>
+ <qrcode id="qrcode" [qrdata]="qrdata" [width]="200" [errorCorrectionLevel]="'H'"  ></qrcode>
+ </div>

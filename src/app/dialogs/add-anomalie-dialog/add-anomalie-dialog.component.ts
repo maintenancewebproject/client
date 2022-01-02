@@ -36,7 +36,6 @@ export class AddAnomalieDialogComponent implements OnInit {
   onSubmit() {
     this.anomalieService.addAnomalie(this.Description,this.resourceId,false, 0).subscribe(
       (response) => {
-        console.log(response);
         alert("L'anomalie a été ajouté avec succès");
         this.anomalieForm.reset();
       },

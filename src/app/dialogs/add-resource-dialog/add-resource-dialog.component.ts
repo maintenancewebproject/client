@@ -41,7 +41,6 @@ export class AddResourceDialogComponent implements OnInit {
     this.userService.getUserById(this.userId).subscribe( (user) => {
     this.resourceService.addResource(this.Etage + ' - ' + this.Appart, this.Description, user.id).subscribe(
       (response) => {
-        console.log(response);
         alert("La ressource a été ajouté avec succès");
         this.userForm.reset();
       },

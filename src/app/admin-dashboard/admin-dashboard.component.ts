@@ -37,14 +37,11 @@ export class AdminDashboardComponent implements AfterViewInit {
     this.userService.getUsers().subscribe(
       (response) => {
         this.users = response;
-        console.log(this.users , this.users.length);
         const ELEMENT_DATA: Element[] = [];
         this.users.forEach((user) => {
-          console.log(user)
           let elem : Element = {
             id: user.id, firstName :user.firstName,lastName :user.lastName ,role : this.roles[user.role -1], delete:'', update:''};
             ELEMENT_DATA.push(elem);
-            console.log(ELEMENT_DATA);
           });
         this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
         this.dataSource.paginator = this.paginator;
@@ -66,15 +63,12 @@ export class AdminDashboardComponent implements AfterViewInit {
     this.userService.getUsers().subscribe(
       (users) => {
         if(users) {
-        console.log(users);
         this.users = users;
         const ELEMENT_DATA: Element[] = [];
         this.users.forEach((user) => {
-          console.log(user)
           let elem : Element = {
             id: user.id, firstName :user.firstName,lastName :user.lastName ,role : this.roles[user.role -1], delete:'', update:''};
             ELEMENT_DATA.push(elem);
-            console.log(ELEMENT_DATA);
         });
         this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
       }
@@ -84,7 +78,6 @@ export class AdminDashboardComponent implements AfterViewInit {
   public deleteUser(e: Element): void {
     this.userService.deleteUser(e.id).subscribe(
       (response) => {
-        console.log(response);
         this.getUsers();
       },
       (error) => {
@@ -98,7 +91,6 @@ export class AdminDashboardComponent implements AfterViewInit {
       data: {
         userId: e.id}});
       dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
         this.getUsers();
       });
   }
@@ -107,7 +99,6 @@ export class AdminDashboardComponent implements AfterViewInit {
     const dialogRef = this.dialog.open(AddUserDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getUsers();
     });
   }

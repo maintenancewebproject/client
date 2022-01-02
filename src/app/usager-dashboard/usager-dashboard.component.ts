@@ -38,7 +38,6 @@ export class UsagerDashboardComponent implements OnInit {
     this.userService.getUserById(this.userId).subscribe( (user) => {
     this.anomalieService.addAnomalie(this.Description,this.resourceId,false, user.id).subscribe(
       (response) => {
-        console.log(response);
         alert("L'anomalie a été ajouté avec succès");
         this.anomalieForm.reset();
       },

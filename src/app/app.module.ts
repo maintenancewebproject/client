@@ -28,6 +28,10 @@ import { UsagerDashboardComponent } from './usager-dashboard/usager-dashboard.co
 import { ResponsableDashboardComponent } from './responsable-dashboard/responsable-dashboard.component';
 import { AnomalieComponent } from './anomalie/anomalie.component';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QRCodeModule } from 'angularx-qrcode';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 
 @NgModule({
@@ -62,7 +66,10 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     MatButtonModule,
     MatToolbarModule,
     MatFormFieldModule,
-    MatInputModule    
+    MatInputModule,
+    NgxQRCodeModule,
+    QRCodeModule, 
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
